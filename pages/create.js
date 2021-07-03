@@ -6,13 +6,13 @@ export default function Home()
 {
     const [todos, setTodos] = useState([]);
     useEffect(async () => {
-      const result = await axios.get("http://localhost:1337/todos");
+      const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
       setTodos(result?.data);
     }, []);
 
 const addTodo = async (todoText) => {
     if (todoText && todoText.length > 0) {
-      const result = await axios.post("http://localhost:1337/todos", {
+      const result = await axios.post("https://strapi-solution.herokuapp.com/todos", {
         todoText: todoText,
       });
       setTodos([...todos, result?.data]);
