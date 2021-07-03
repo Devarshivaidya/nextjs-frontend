@@ -6,7 +6,7 @@ export default function Home()
 {
     const [todos, setTodos] = useState([]);
     useEffect(async () => {
-      const result = await axios.get("https://strapi-solution.herokuapp.com/todo");
+      const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
       setTodos(result?.data);
     }, []);
     
