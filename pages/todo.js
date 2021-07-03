@@ -4,17 +4,10 @@ import TodoList from "../components/TodoList";
 import axios from "axios";
 export default function Home() {
   const [todos, setTodos] = useState([]);
-  // useEffect(async () => {
-  //   const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
-  //   setTodos(result?.data);
-  // }, []);
-  useEffect(() => {
-    async function fetchData() {
-       const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
-      setTodos(result?.data);
-    }
-    fetchData();
-  },[]);
+  useEffect(async () => {
+    const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
+    setTodos(result?.data);
+  }, []);
   const deleteTodoItem = async (todo) => {
     if (confirm("Do you really want to delete this item?")) {
       await axios.delete("https://strapi-solution.herokuapp.com/todos/" + todo.id);
