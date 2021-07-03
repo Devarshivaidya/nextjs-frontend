@@ -6,7 +6,7 @@ export default function Home()
 {
     const [todos, setTodos] = useState([]);
     useEffect(async () => {
-      const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
+      const result = await axios.get("https://strapi-solution.herokuapp.com/todo");
       setTodos(result?.data);
     }, []);
     
@@ -14,7 +14,7 @@ export default function Home()
 
 const addTodo = async (todoText) => {
     if (todoText && todoText.length > 0) {
-      const result = await axios.post("https://strapi-solution.herokuapp.com/todos", {
+      const result = await axios.post("https://strapi-solution.herokuapp.com/todo", {
         todoText: todoText,
       });
       setTodos([...todos, result?.data]);
