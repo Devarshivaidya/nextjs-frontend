@@ -5,14 +5,11 @@ import axios from "axios";
 export default function Home() 
 {
     const [todos, setTodos] = useState([]);
-    useEffect(() => {
-      async function fetchData() {
-         const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
-        setTodos(result?.data);
-      }
-      fetchData();
-    },[]);
-
+    useEffect(async () => {
+      const result = await axios.get("https://strapi-solution.herokuapp.com/todos");
+      setTodos(result?.data);
+    }, []);
+    
     
 
 const addTodo = async (todoText) => {
