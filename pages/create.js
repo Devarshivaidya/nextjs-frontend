@@ -14,7 +14,7 @@ export default function Home()
 
 const addTodo = async (todoText) => {
     if (todoText && todoText.length > 0) {
-      const result = await axios.post("https://strapi-solution.herokuapp.com/todo", {
+      const result = await axios.post("https://strapi-solution.herokuapp.com/todos", {
         todoText: todoText,
       });
       setTodos([...todos, result?.data]);
