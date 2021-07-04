@@ -17,7 +17,9 @@ const addTodo = async (todoText) => {
       const result = await axios.post("https://strapi-solution.herokuapp.com/todos", {
         todoText: todoText,
       });
+    
       setTodos([...todos, result?.data]);
+      alert("new todo create");
     }
   };
   return(     
